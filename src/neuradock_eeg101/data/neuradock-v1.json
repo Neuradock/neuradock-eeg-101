@@ -1,0 +1,29 @@
+{
+  "profile_version": "1.1",
+  "device": "NeuraDock EEG Workstation",
+  "hardware_revision": "public-profile-v2",
+  "sample_rate_hz": 250,
+  "amplitude_unit": "uV",
+  "orientation": "channels_by_samples",
+  "channels": ["CP5", "CP6", "PO3", "PO4", "O1", "Oz", "O2"],
+  "posterior_channels": ["PO3", "PO4", "O1", "Oz", "O2"],
+  "posterior_left": ["PO3", "O1"],
+  "posterior_right": ["PO4", "O2"],
+  "line_frequency_hz": 50,
+  "alpha_band_hz": [8, 13],
+  "tcp": {
+    "host": "127.0.0.1",
+    "port": 9600,
+    "start_command": "start",
+    "connect_timeout_s": 4,
+    "idle_timeout_s": 2
+  },
+  "quality_thresholds": {
+    "line_noise_power": 10,
+    "emg_power": 20,
+    "outlier_count_per_second": 2,
+    "outlier_absolute_amplitude_uv": 100,
+    "bad_channel_segment_ratio": 0.4,
+    "minimum_neighbor_correlation": 0.15
+  }
+}

@@ -1,0 +1,52 @@
+"""Check that the five-lesson public package stays small and navigable."""
+
+from pathlib import Path
+import json
+import re
+import unittest
+from urllib.parse import unquote, urlsplit
+
+
+ROOT = Path(__file__).resolve().parents[1]
+COURSE_URL = "https://www.crowdsupply.com/neuradock/neuradock-eeg-workstation"
+
+
+class PublicationTests(unittest.TestCase):
+    def test_exactly_five_clean_notebooks(self) -> None:
+        notebooks = sorted((ROOT / "notebooks").glob("[0-9][0-9]-*.ipynb"))
+        self.assertEqual([p.name[:2] for p in notebooks], ["01", "02", "03", "04", "05"])
+        for path in notebooks:
+            book = json.loads(path.read_text(encoding="utf-8"))
+            for cell in book["cells"]:
+                if cell["cell_type"] == "code":
+                    self.assertIsNone(cell["execution_count"])
+                    self.assertEqual(cell["outputs"], [])
+
+    def test_homepage_leads_to_subscription_and_license(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn(COURSE_URL, readme[:1500])
+        self.assertIn("academic and non-commercial", readme[:1500])
+        self.assertIn("launch updates", readme[:1500])
+        self.assertTrue((ROOT / "LICENSE.md").is_file())
+
+    def test_local_markdown_links_exist(self) -> None:
+        pages = [ROOT / "README.md", *(ROOT / "tutorials").glob("lesson-0[1-5]*.md")]
+        for page in pages:
+            content = page.read_text(encoding="utf-8")
+            for raw in re.findall(r"(?<!!)\[[^]]+\]\(([^)]+)\)|!\[[^]]*\]\(([^)]+)\)", content):
+                target = raw[0] or raw[1]
+                parsed = urlsplit(target)
+                if parsed.scheme or target.startswith("#"):
+                    continue
+                destination = (page.parent / unquote(parsed.path)).resolve()
+                with self.subTest(page=page.name, target=target):
+                    self.assertTrue(destination.exists())
+
+    def test_no_participant_recording_or_old_course_app(self) -> None:
+        self.assertFalse(list((ROOT / "data" / "teaching").rglob("*.txt")))
+        self.assertFalse((ROOT / "src" / "neuradock_eeg101" / "feedback_app.py").exists())
+        self.assertFalse((ROOT / "slides" / "00-neuradock-eeg-101-five-lesson-lecture.pptx").exists())
+
+
+if __name__ == "__main__":
+    unittest.main()

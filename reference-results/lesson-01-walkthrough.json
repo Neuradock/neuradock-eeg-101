@@ -1,0 +1,77 @@
+{
+  "mode": "simulation",
+  "amplitude_unit": "a.u.",
+  "output_channels": 1,
+  "parameters": {
+    "N": 20,
+    "active_num": 12,
+    "target_freq": 10.0,
+    "phase_variation": 0.7853981633974483,
+    "background_freq": 5.0,
+    "duration": 2.0,
+    "sampling_rate": 1000
+  },
+  "spike_seed": 42,
+  "weight_seed": 42,
+  "display_window_s": [
+    0.4,
+    1.2
+  ],
+  "raw_shape": [
+    2000
+  ],
+  "frequency_values_hz": [
+    5.0,
+    10.0
+  ],
+  "phase_values_rad": [
+    0.0,
+    3.141592653589793
+  ],
+  "contribution_sum_max_error": 0.0,
+  "event_sum_max_error": 5.551115123125783e-17,
+  "negative_event_count": 5,
+  "selected_background_neuron": 12,
+  "selected_events_s": [
+    0.4050234337207244,
+    0.44515923147065706,
+    0.48568151603710846
+  ],
+  "figures": [
+    "figures/lesson-01-walkthrough/01-spike-trains.png",
+    "figures/lesson-01-walkthrough/02-one-spike-response.png",
+    "figures/lesson-01-walkthrough/03-responses-add-up.png",
+    "figures/lesson-01-walkthrough/04-weighted-population.png",
+    "figures/lesson-01-walkthrough/05-frequency-comparison.png",
+    "figures/lesson-01-walkthrough/06-phase-comparison.png"
+  ],
+  "source": {
+    "origin": "S1/S1_1_EEG_source.ipynb",
+    "cell_index": 1,
+    "notebook_sha256": "b31fc3aef327a89a322ea0052264142f5070047843f74479e8ef4a7cd7ea3a65",
+    "cell_sha256": "7c2ffd0222ab838511b8d1bee586e0be95a0e368d981a8a7b483a31aafdeafcc",
+    "function_sha256": {
+      "simulate_spiking_neurons": "8a3894c31de3c934b46c4c373cfa845d99a7d083bfad1c1de0e51efceea872ce",
+      "generate_eeg": "06f020d3d439e6a9d461b4b79d56201080c888fac508894700d1c0d107f278cf"
+    },
+    "policy": "Both computational functions are copied verbatim. Tutorials vary existing call arguments only.",
+    "fixed_core": {
+      "tau_s": 0.02,
+      "kernel_duration_s": 0.1,
+      "weights": "independent normal(0, 1), signed",
+      "sum": "weighted sum, no division by N"
+    },
+    "limitations": [
+      "Negative spike times are retained by the original generator and NumPy negative indices wrap to the record end.",
+      "Background trains draw a finite batch of exponential intervals.",
+      "Changing active_num changes random-number consumption for subsequent neurons.",
+      "Changing background_freq changes the finite ISI batch size and random-number consumption for later background neurons."
+    ]
+  },
+  "limitations": [
+    "Teaching model, not a head model or calibrated scalp EEG.",
+    "Original negative-time indexing and finite background interval batches are preserved.",
+    "The displayed interior interval is a plot zoom, not a modification of raw outputs."
+  ],
+  "reproduce": "python scripts/execute_notebooks.py; python scripts/export_lesson01_walkthrough.py"
+}

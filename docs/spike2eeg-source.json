@@ -1,0 +1,23 @@
+{
+  "origin": "S1/S1_1_EEG_source.ipynb",
+  "cell_index": 1,
+  "notebook_sha256": "b31fc3aef327a89a322ea0052264142f5070047843f74479e8ef4a7cd7ea3a65",
+  "cell_sha256": "7c2ffd0222ab838511b8d1bee586e0be95a0e368d981a8a7b483a31aafdeafcc",
+  "function_sha256": {
+    "simulate_spiking_neurons": "8a3894c31de3c934b46c4c373cfa845d99a7d083bfad1c1de0e51efceea872ce",
+    "generate_eeg": "06f020d3d439e6a9d461b4b79d56201080c888fac508894700d1c0d107f278cf"
+  },
+  "policy": "Both computational functions are copied verbatim. Tutorials vary existing call arguments only.",
+  "fixed_core": {
+    "tau_s": 0.02,
+    "kernel_duration_s": 0.1,
+    "weights": "independent normal(0, 1), signed",
+    "sum": "weighted sum, no division by N"
+  },
+  "limitations": [
+    "Negative spike times are retained by the original generator and NumPy negative indices wrap to the record end.",
+    "Background trains draw a finite batch of exponential intervals.",
+    "Changing active_num changes random-number consumption for subsequent neurons.",
+    "Changing background_freq changes the finite ISI batch size and random-number consumption for later background neurons."
+  ]
+}

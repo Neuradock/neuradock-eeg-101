@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: >-
+  If you use NeuraDock EEG 101 in teaching, research, a report, or a publication,
+  please cite the software and identify NeuraDock. Usage terms are in LICENSE.md.
+title: NeuraDock EEG 101
+type: software
+authors:
+  - name: NeuraDock
+    email: business@neuradock.com
+version: 0.1.0
+abstract: >-
+  A five-lesson tutorial covering spike-to-signal simulation, real NeuraDock
+  recording inspection, signal-quality gating, Alpha-power features, and a
+  guided handoff to the NeuraDock EEG Workstation Agent.
+keywords:
+  - EEG
+  - brain-computer interface
+  - neuroscience education
+  - signal processing
+  - NeuraDock

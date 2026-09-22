@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neuradock-eeg-101"
+version = "0.1.0"
+description = "Five hands-on EEG lessons, from spikes to quality-gated Alpha"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "NeuraDock", email = "business@neuradock.com" }]
+license = { file = "LICENSE.md" }
+dependencies = ["numpy>=1.26,<3", "scipy>=1.11,<2", "matplotlib>=3.8,<4"]
+
+[project.optional-dependencies]
+notebooks = ["ipykernel>=6,<8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+neuradock_eeg101 = ["data/*.json", "vendor/*.json", "vendor/*.txt"]

@@ -1,0 +1,20 @@
+{
+  "upstream_repository": "https://github.com/Neuradock/eeg-workstation-agent",
+  "upstream_commit": "e3539cbeca99e824dfeb3ebdb44d80ca80f0d5dc",
+  "upstream_path": "src/neuradock_agent/quality_tools.py",
+  "vendored_functions": [
+    "eeg_quality_check",
+    "clean_eeg_data"
+  ],
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 NeuraDock",
+  "local_adapters": [
+    "profile.py",
+    "signal_compat.py"
+  ],
+  "function_sha256": {
+    "eeg_quality_check": "13f911277e480977f2b4505010b1d1ae7ce2f5e4a8f6bf07ff591fcfcf624eab",
+    "clean_eeg_data": "b70e47b99e3e6ac122dbfce3481dfd365f316e70295146b5e955eab6bc56ec5b"
+  },
+  "hash_scope": "UTF-8 function source from def through the final statement, excluding trailing newlines"
+}
