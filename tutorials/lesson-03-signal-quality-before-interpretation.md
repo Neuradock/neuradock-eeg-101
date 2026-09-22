@@ -10,7 +10,7 @@ The notebook and this page replace the earlier synthetic demonstration. The olde
 
 ## 1. Confirm the input and algorithm · 5 min
 
-Use the real-file path from Lesson 2, or set `NEURADOCK_LESSON03_FILE` before starting the kernel. The notebook also accepts `NEURADOCK_LESSON02_FILE`; otherwise it looks for `data/teaching/lesson-02/recording-01.txt`, then the author's local `../S2/S04_01.txt`. See [real-data availability](../data/teaching/lesson-02/README.md). Publication clearance is still required: local access does not authorize redistribution. A missing recording stops the lesson; there is no synthetic fallback.
+By default, the notebook uses the bundled real `data/teaching/lesson-02/recording-01.txt` from Lesson 2. Set `NEURADOCK_LESSON03_FILE` before starting the kernel to inspect another authorized recording; it also accepts `NEURADOCK_LESSON02_FILE`. See [recording provenance](../data/teaching/lesson-02/README.md). A missing recording stops the lesson; there is no synthetic fallback.
 
 The data owner confirmed on 2026-09-21 that both supplied S2 files, `S04_01.txt` and `S04_11.txt`, already contain microvolt values. No additional amplitude conversion is needed for those exact files. The notebook recognizes their hashes; for a new file, set `UNIT_CONFIRMED = True` only after independently verifying µV. With unknown units, metrics are reference-only and the gate reports no accepted duration. Keep `Ch1`–`Ch7` until historical electrode placement is verified. A filename or seven-column header does not establish a montage.
 

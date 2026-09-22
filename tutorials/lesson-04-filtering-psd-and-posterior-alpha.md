@@ -10,7 +10,7 @@ The core feature is **absolute Alpha power**, measured in µV². We do not compa
 
 ## 1. Start with the Lesson 3 quality decision · 10 min
 
-Use the same real recording and acquisition settings as Lessons 2–3. Set `DATA_PATH` in the notebook or `NEURADOCK_LESSON04_FILE` before starting the kernel. The default search then checks `NEURADOCK_LESSON03_FILE`, `NEURADOCK_LESSON02_FILE`, the available `data/teaching/lesson-02/recording-01.txt`, and finally the author's local `../S2/S04_01.txt`. Missing real data raises an error; no synthetic recording is substituted. See [data availability and permissions](../data/teaching/lesson-02/README.md).
+Use the same bundled real `data/teaching/lesson-02/recording-01.txt` and acquisition settings as Lessons 2–3. Set `DATA_PATH` in the notebook or `NEURADOCK_LESSON04_FILE` before starting the kernel to inspect another authorized recording. Missing real data raises an error; no synthetic recording is substituted. See [data provenance and permissions](../data/teaching/lesson-02/README.md).
 
 The data owner confirmed on 2026-09-21 that the two exact supplied S2 files already contain µV values. Their hashes, not just their filenames, identify that confirmation. A new file needs its own verified unit setting before Alpha power is calculated. Labels remain `Ch1`–`Ch7`: historical electrode positions and condition meanings are not established.
 

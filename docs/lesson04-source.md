@@ -112,8 +112,9 @@ File selection checks `NEURADOCK_LESSON04_FILE`, then
 `NEURADOCK_LESSON03_FILE`, then `NEURADOCK_LESSON02_FILE`, then an available
 `data/teaching/lesson-02/recording-01.txt`, otherwise the author's local
 `../S2/S04_01.txt`. Missing real data is an error; there is no synthetic fallback.
-See [teaching-data availability](../data/teaching/lesson-02/README.md): public
-redistribution clearance remains pending.
+See [approved teaching-data provenance](../data/teaching/lesson-02/README.md).
+Only the two listed recordings are released for teaching; new captures need
+their own publication authorization.
 
 The [60-minute tutorial](../tutorials/lesson-04-filtering-psd-and-posterior-alpha.md)
 produces four figures under the ignored `outputs/notebooks/lesson-04/`:

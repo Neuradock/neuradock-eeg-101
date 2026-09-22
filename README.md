@@ -18,6 +18,8 @@ Five hands-on lessons for undergraduate EEG learning: from model spikes to a rea
 
 Each notebook contains its lesson explanation and code. The tutorial pages are readable companions, not extra prerequisites. Lesson 5's notebook only checks the environment and prints a blank observation sheet; it does not connect to hardware. The Agent application lives in its [own repository](https://github.com/Neuradock/eeg-workstation-agent).
 
+The [complete five-lesson lecture deck](slides/00-neuradock-eeg-101-five-lesson-lecture.pptx) has 30 editable slides with result charts and speaker notes. It covers the learning goals and outcomes for Lessons 1–5; the Lesson 1 deck above is a shorter companion for that session.
+
 ## Run in VS Code
 
 Install Python 3.10 or newer and the VS Code Python and Jupyter extensions. Open this entire repository folder in VS Code, then create a course environment:
@@ -28,9 +30,9 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-On macOS/Linux, use `./.venv/bin/python` instead. In VS Code choose **Select Kernel → Python Environments → .venv**, open Lesson 1, and choose **Run All**. Generated figures and summaries stay in the ignored `outputs/` folder.
+On macOS/Linux, use `./.venv/bin/python` instead. In VS Code choose **Select Kernel → Python Environments → .venv**, open each notebook in order, and choose **Run All**. For a command-line check of all five notebooks, run `.\.venv\Scripts\python.exe scripts\execute_notebooks.py` on Windows or `./.venv/bin/python scripts/execute_notebooks.py` on macOS/Linux. Generated figures and summaries stay in the ignored `outputs/` folder.
 
-Lessons 2–4 require the **same authorized real recording**; they have no synthetic fallback. This repository intentionally does not publish a participant's raw EEG. Obtain an authorized file with documented units and acquisition settings from your instructor, then set `DATA_PATH` in the notebook or `NEURADOCK_LESSON02_FILE` before starting its kernel. See the [real-data note](data/teaching/lesson-02/README.md). An unknown file's amplitude unit must be confirmed before Lesson 3 quality thresholds or Lesson 4 features can be interpreted. Historical S2 files use generic `Ch1`–`Ch7` labels; do not infer electrode positions or experimental conditions from a filename.
+Lessons 2–4 use the bundled, owner-approved real file [`recording-01.txt`](data/teaching/lesson-02/recording-01.txt) by default, so a fresh clone needs no separate data download. [`recording-02.txt`](data/teaching/lesson-02/recording-02.txt) is an optional second recording. There is no synthetic fallback in these lessons. The source materials state 250 Hz, and the data owner confirmed the stored EEG values are already µV; see the [data provenance and hashes](data/teaching/lesson-02/README.md). The historical montage and experimental conditions are not established, so the lessons use `Ch1`–`Ch7` rather than invented electrode positions or events.
 
 ## What a result means
 

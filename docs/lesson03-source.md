@@ -94,10 +94,9 @@ The file selection order is `NEURADOCK_LESSON03_FILE`, then
 `data/teaching/lesson-02/recording-01.txt`, otherwise the author's local
 `../S2/S04_01.txt`. A missing real file raises an error.
 
-See [teaching-data availability and permissions](../data/teaching/lesson-02/README.md).
-Publication clearance is pending; local access and confirmed units do not
-authorize public redistribution. This revision does not copy or upload raw
-recordings. Six figures, `summary.json`, and `quality-masks.npz` remain in the Git-ignored
+See [approved teaching-data provenance](../data/teaching/lesson-02/README.md).
+Only the two listed recordings are released for teaching; new captures need
+their own publication authorization. Six figures, `summary.json`, and `quality-masks.npz` remain in the Git-ignored
 `outputs/notebooks/lesson-03/`; tracked notebooks must remain free of private outputs.
 
 The mask archive distinguishes assessed samples, temporal acceptance, excluded

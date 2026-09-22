@@ -79,7 +79,7 @@ Call the result **sensor-level Alpha-band coherence**, report the estimator and 
 
 Process raw EEG locally by default. Use pseudonymous participant codes rather than names in filenames. Store consent records and identity keys separately. Define who can access the data, where it is retained, and when it is deleted.
 
-Never commit participant raw EEG to Git. Public repositories should contain only synthetic data or recordings with documented consent, de-identification, and redistribution permission.
+Do not commit new participant EEG to Git without documented consent, de-identification, and redistribution permission. The two recordings in `data/teaching/lesson-02/` are the specific owner-approved public teaching release; their approval does not extend to other captures.
 
 ## Live-device status
 

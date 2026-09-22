@@ -21,9 +21,9 @@ the notebook so students can inspect and execute the actual extraction code.
 and the tested implementation and checks that the shared notebook has no outputs.
 
 Local replay validation compares the adapted reader's complete EEG arrays against
-the original function on both supplied S2 recordings. This comparison requires
-the author's original files; it is not evidence that their redistribution is
-authorized. Public data availability is described in
+the original function on both supplied S2 recordings. The data owner has now
+authorized these two exact recordings for this course release. Their public
+paths, hashes, and limitations are described in
 [`data/teaching/lesson-02/README.md`](../data/teaching/lesson-02/README.md).
 
 Only the original notebook's reading core is reused. Its quality-scoring,

@@ -6,7 +6,8 @@ This course uses the checked-in profile at [`configs/neuradock-v1.json`](../conf
 the supplied S2 files without asserting that their acquisition metadata matches
 this current hardware profile. Its separate, header-driven `reading.data_reader`
 preserves the original EEG values, clock strings, and raw P field. It uses generic
-Ch1–Ch7 column labels and unconfirmed amplitude units pending acquisition evidence.
+Ch1–Ch7 column labels. The data owner confirmed these stored values are already
+microvolts (µV); the historical montage and experimental conditions are unconfirmed.
 The supplied P sequences are counter-like; they are not interpreted as experimental
 markers. This does not redefine the public hardware profile below. The existing
 `parser.parse_recording` path remains in use for the documented synthetic examples

@@ -12,7 +12,7 @@ The notebook and this page are the teaching materials for this 60-minute lesson.
 
 ## 1. Choose a real recording · 10 min
 
-The public teaching-data location is `data/teaching/lesson-02/recording-01.txt`. Check the [teaching-data README](../data/teaching/lesson-02/README.md) for availability and permission status: reserving this path does not mean the recording has already been released.
+The owner-approved real recording is bundled at `data/teaching/lesson-02/recording-01.txt`; `recording-02.txt` is an optional second input. See the [teaching-data README](../data/teaching/lesson-02/README.md) for provenance, hashes, and limitations.
 
 The notebook uses that file if present. Otherwise, in the author's workspace, it reads the original `../S2/S04_01.txt` directly, without copying it into the repository. For your own real recording, replace `DATA_PATH` in the file-settings cell, for example:
 
@@ -48,9 +48,9 @@ The original reader and the revised reader produce identical EEG arrays for the 
 | `S04_01.txt` | `(7, 23518)` |
 | `S04_11.txt` | `(7, 29822)` |
 
-These are source-file checks, not a statement that the files are publicly distributed. Another recording can have a different sample count.
+Both files are included in this course release. Another recording can have a different sample count.
 
-The default labels are `Ch1`–`Ch7`: column labels, not inferred electrode positions. The original S2 notebook assumes µV, but the header alone does not confirm calibration. The revised plots therefore say **Recorded amplitude (unit unconfirmed)**. Change this label only after checking acquisition/export documentation; changing a label never converts values.
+The default labels are `Ch1`–`Ch7`: column labels, not inferred electrode positions. The data owner confirmed that these two exact recordings already contain µV values, so their plots say **Recorded amplitude (µV)**. A different file retains a unit-unconfirmed label until its calibration is checked; changing a label never converts values.
 
 ## 3. Give samples a relative time axis · 10 min
 
@@ -86,7 +86,7 @@ Now choose `CHANNEL_INDEX = 6`. Then try `START_S = 10` and `WINDOW_S = 2`, if y
 
 ## 5. Explain and save your result · 5 min
 
-The notebook saves three PNG figures and `summary.json` under `outputs/notebooks/lesson-02/`. These runtime outputs are ignored by Git. Keep private recordings, their plots, and executed notebook outputs local; public teaching-data release needs explicit authorization.
+The notebook saves three PNG figures and `summary.json` under `outputs/notebooks/lesson-02/`. These runtime outputs are ignored by Git. Keep any *new* recording and its derived outputs private unless it receives separate publication authorization.
 
 Submit the figures through your instructor's approved channel and briefly explain:
 

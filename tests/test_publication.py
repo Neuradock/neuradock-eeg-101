@@ -1,9 +1,11 @@
 """Check that the five-lesson public package stays small and navigable."""
 
 from pathlib import Path
+import hashlib
 import json
 import re
 import unittest
+import zipfile
 from urllib.parse import unquote, urlsplit
 
 
@@ -27,6 +29,7 @@ class PublicationTests(unittest.TestCase):
         self.assertIn(COURSE_URL, readme[:1500])
         self.assertIn("academic and non-commercial", readme[:1500])
         self.assertIn("launch updates", readme[:1500])
+        self.assertIn("slides/00-neuradock-eeg-101-five-lesson-lecture.pptx", readme)
         self.assertTrue((ROOT / "LICENSE.md").is_file())
 
     def test_local_markdown_links_exist(self) -> None:
@@ -42,10 +45,27 @@ class PublicationTests(unittest.TestCase):
                 with self.subTest(page=page.name, target=target):
                     self.assertTrue(destination.exists())
 
-    def test_no_participant_recording_or_old_course_app(self) -> None:
-        self.assertFalse(list((ROOT / "data" / "teaching").rglob("*.txt")))
+    def test_only_approved_recordings_and_complete_slides(self) -> None:
+        expected = {
+            "recording-01.txt": "1c7cf69cf4572aa96b3452f2febb176c8c2a024eaf0e95812b22edda881006bb",
+            "recording-02.txt": "23a8e68b331a86ed7eb79056b580a972bdb9ee74d189e881316f0c7ead35db54",
+        }
+        actual = list((ROOT / "data" / "teaching").rglob("*.txt"))
+        self.assertEqual({p.name for p in actual}, set(expected))
+        for path in actual:
+            with self.subTest(recording=path.name):
+                self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), expected[path.name])
+        deck = ROOT / "slides" / "00-neuradock-eeg-101-five-lesson-lecture.pptx"
+        with zipfile.ZipFile(deck) as archive:
+            names = archive.namelist()
+        slides = [name for name in names if re.fullmatch(r"ppt/slides/slide\d+\.xml", name)]
+        notes = [name for name in names if re.fullmatch(r"ppt/notesSlides/notesSlide\d+\.xml", name)]
+        self.assertEqual(len(slides), 30)
+        self.assertEqual(len(notes), 30)
+        self.assertTrue((ROOT / "slides" / "01-from-synchronized-neurons-to-measurable-eeg.pptx").is_file())
+
+    def test_no_old_course_app(self) -> None:
         self.assertFalse((ROOT / "src" / "neuradock_eeg101" / "feedback_app.py").exists())
-        self.assertFalse((ROOT / "slides" / "00-neuradock-eeg-101-five-lesson-lecture.pptx").exists())
 
 
 if __name__ == "__main__":

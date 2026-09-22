@@ -8,6 +8,8 @@ outputs/
 data/raw/
 data/private/
 data/teaching/**/*.txt
+!data/teaching/lesson-02/recording-01.txt
+!data/teaching/lesson-02/recording-02.txt
 captures/
 participant-data/
 *.edf
