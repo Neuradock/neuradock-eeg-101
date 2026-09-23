@@ -1,4 +1,4 @@
-# Lesson 1 — From Spike Trains to a Signed Aggregate
+# Lesson 1 — How Spikes Become an EEG-Like Signal
 
 **Type:** Core<br>
 **Mode:** `simulation`<br>
