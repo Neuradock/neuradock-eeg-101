@@ -8,7 +8,7 @@
 
 [Agent setup and documentation](https://github.com/Neuradock/eeg-workstation-agent#install) ·
 [Alpha Experience guide](https://github.com/Neuradock/eeg-workstation-agent/blob/main/docs/alpha-experience.md) ·
-[Open this lesson in VS Code](../notebooks/05-eyes-open-closed-alpha.ipynb) ·
+[Open this lesson in VS Code](../notebooks/05-from-alpha-features-to-the-neuradock-agent.ipynb) ·
 [Version and method notes](../docs/lesson05-source.md)
 
 You have already learned how signals become EEG, how to read a recording,

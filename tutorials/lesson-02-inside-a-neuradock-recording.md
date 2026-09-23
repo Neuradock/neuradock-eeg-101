@@ -2,7 +2,7 @@
 
 **Core · real-recording replay · about 60 minutes · after Lesson 1**
 
-[Open the notebook](../notebooks/02-reading-neuradock-data.ipynb) in VS Code, select the course Python kernel, and choose **Run All**. This lesson follows one simple path:
+[Open the notebook](../notebooks/02-read-and-plot-your-neuradock-data.ipynb) in VS Code, select the course Python kernel, and choose **Run All**. This lesson follows one simple path:
 
 **Text file → seven-channel array → relative time → raw waveforms.**
 

@@ -2,7 +2,7 @@
 
 **Core · real-recording replay · about 60 minutes · after Lesson 2**
 
-[Open the notebook](../notebooks/03-signal-quality-control.ipynb) in VS Code and select the course kernel. This lesson asks: **which intervals should we inspect before interpreting EEG features?**
+[Open the notebook](../notebooks/03-three-artifact-checks-one-quality-gate.ipynb) in VS Code and select the course kernel. This lesson asks: **which intervals should we inspect before interpreting EEG features?**
 
 Use the same real recording as Lesson 2. Follow the official NeuraDock quality-check code, calculate its three visible metrics, and inspect the corresponding waveforms. Do not add artificial artifacts to make a rule trigger. An unflagged result is also a result.
 

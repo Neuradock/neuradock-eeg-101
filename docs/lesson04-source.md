@@ -38,7 +38,7 @@ grid. The source calculation is not silently shortened for insufficient input.
 
 The feature helpers live in
 [`src/neuradock_eeg101/alpha_features.py`](../src/neuradock_eeg101/alpha_features.py).
-The [Lesson 4 notebook](../notebooks/04-filtering-psd-alpha.ipynb) makes the
+The [Lesson 4 notebook](../notebooks/04-from-eeg-to-features-understanding-alpha-power.ipynb) makes the
 calculation visible and generates its own real-data figures.
 
 The example defaults to the first eligible column and first accepted

@@ -14,15 +14,24 @@ COURSE_URL = "https://www.crowdsupply.com/neuradock/neuradock-eeg-workstation"
 
 
 class PublicationTests(unittest.TestCase):
-    def test_exactly_five_clean_notebooks(self) -> None:
+    def test_exactly_five_executed_notebooks(self) -> None:
         notebooks = sorted((ROOT / "notebooks").glob("[0-9][0-9]-*.ipynb"))
         self.assertEqual([p.name[:2] for p in notebooks], ["01", "02", "03", "04", "05"])
-        for path in notebooks:
+        expected_images = [6, 3, 6, 4, 0]
+        for path, image_count in zip(notebooks, expected_images):
             book = json.loads(path.read_text(encoding="utf-8"))
+            executed = []
+            images = 0
             for cell in book["cells"]:
                 if cell["cell_type"] == "code":
-                    self.assertIsNone(cell["execution_count"])
-                    self.assertEqual(cell["outputs"], [])
+                    executed.append(cell["execution_count"])
+                    for output in cell["outputs"]:
+                        self.assertNotEqual(output["output_type"], "error")
+                        images += int("image/png" in output.get("data", {}))
+            with self.subTest(notebook=path.name):
+                self.assertEqual(executed, list(range(1, len(executed) + 1)))
+                self.assertEqual(images, image_count)
+                self.assertNotIn(str(ROOT), path.read_text(encoding="utf-8"))
 
     def test_homepage_leads_to_subscription_and_license(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")

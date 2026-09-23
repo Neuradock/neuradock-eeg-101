@@ -5,7 +5,7 @@
 **Suggested time:** 60 minutes<br>
 **Prerequisite:** [Set up the course environment](../README.md#run-in-vs-code)
 
-[Executable notebook](../notebooks/01-from-synchrony-to-eeg.ipynb) · [10-slide lecture deck](../slides/01-from-synchronized-neurons-to-measurable-eeg.pptx) · [Source provenance](../docs/spike2eeg-source.json)
+[Executable notebook](../notebooks/01-how-spikes-become-an-eeg-like-signal.ipynb) · [10-slide lecture deck](../slides/01-from-synchronized-neurons-to-measurable-eeg.pptx) · [Source provenance](../docs/spike2eeg-source.json)
 
 > **Scientific boundary:** this lesson produces one synthetic trace at 1000 Hz in arbitrary units (`a.u.`). The inherited function is named `generate_eeg`, but its output is not recorded EEG, a calibrated scalp voltage, or a NeuraDock channel. It contains no head model, electrode geometry, reference, or device stage. NeuraDock-format recordings begin in Lesson 2.
 
@@ -37,7 +37,7 @@ Do not edit the function definitions during the core lesson. The notebook change
 
 ## 1. Run the baseline
 
-Open `notebooks/01-from-synchrony-to-eeg.ipynb`, select the course Python environment, and run the cells in order. The baseline calls are equivalent to:
+Open `notebooks/01-how-spikes-become-an-eeg-like-signal.ipynb`, select the course Python environment, and run the cells in order. The baseline calls are equivalent to:
 
 ```python
 spikes = simulate_spiking_neurons(

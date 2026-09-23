@@ -2,7 +2,7 @@
 
 **Core · real-recording replay · about 60 minutes · after Lesson 3**
 
-[Open the notebook](../notebooks/04-filtering-psd-alpha.ipynb) in VS Code, select the course kernel, and run the cells in order. This lesson follows one real recording through four steps:
+[Open the notebook](../notebooks/04-from-eeg-to-features-understanding-alpha-power.ipynb) in VS Code, select the course kernel, and run the cells in order. This lesson follows one real recording through four steps:
 
 **A usable continuous interval → its PSD → the 8–13 Hz area → Alpha power over time.**
 

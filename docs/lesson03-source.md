@@ -105,7 +105,7 @@ restored merely because another channel votes to retain that second.
 
 ## Teaching scope
 
-The revised [notebook](../notebooks/03-signal-quality-control.ipynb) and
+The revised [notebook](../notebooks/03-three-artifact-checks-one-quality-gate.ipynb) and
 [tutorial](../tutorials/lesson-03-signal-quality-before-interpretation.md)
 form the 60-minute lesson. The earlier Lesson 3 PPT is not yet aligned.
 The six figures cover raw/filtered data, line noise, high-frequency activity,
