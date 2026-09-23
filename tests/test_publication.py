@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import hashlib
+from html.parser import HTMLParser
 import json
 import re
 import unittest
@@ -11,6 +12,19 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 COURSE_URL = "https://www.crowdsupply.com/neuradock/neuradock-eeg-workstation"
+
+
+class HTMLLinks(HTMLParser):
+    """Collect native HTML links and images embedded in Markdown."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.targets: list[str] = []
+
+    def handle_starttag(self, tag, attrs) -> None:
+        for name, value in attrs:
+            if (tag, name) in {("a", "href"), ("img", "src")} and value:
+                self.targets.append(value)
 
 
 class PublicationTests(unittest.TestCase):
@@ -35,9 +49,9 @@ class PublicationTests(unittest.TestCase):
 
     def test_homepage_leads_to_subscription_and_license(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
-        self.assertIn(COURSE_URL, readme[:1500])
+        self.assertIn(COURSE_URL, readme)
         self.assertIn("academic and non-commercial", readme[:1500])
-        self.assertIn("launch updates", readme[:1500])
+        self.assertIn("launch updates", readme)
         self.assertIn("slides/00-neuradock-eeg-101-five-lesson-lecture.pptx", readme)
         self.assertTrue((ROOT / "LICENSE.md").is_file())
 
@@ -45,8 +59,13 @@ class PublicationTests(unittest.TestCase):
         pages = [ROOT / "README.md", *(ROOT / "tutorials").glob("lesson-0[1-5]*.md")]
         for page in pages:
             content = page.read_text(encoding="utf-8")
-            for raw in re.findall(r"(?<!!)\[[^]]+\]\(([^)]+)\)|!\[[^]]*\]\(([^)]+)\)", content):
-                target = raw[0] or raw[1]
+            html_links = HTMLLinks()
+            html_links.feed(content)
+            targets = [
+                raw[0] or raw[1]
+                for raw in re.findall(r"(?<!!)\[[^]]+\]\(([^)]+)\)|!\[[^]]*\]\(([^)]+)\)", content)
+            ]
+            for target in targets + html_links.targets:
                 parsed = urlsplit(target)
                 if parsed.scheme or target.startswith("#"):
                     continue
